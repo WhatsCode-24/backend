@@ -9,3 +9,6 @@
 > preencher o env com o banco de dados e o jwt
 
 > yarn dev
+
+## Collection Postman
+[API - 6 SEM.postman_collection.json](https://github.com/user-attachments/files/16949471/API.-.6.SEM.postman_collection.json)
