@@ -10,8 +10,8 @@ const EmpresaUsuarios = require('./empresaUsuarios.routes')
 // Routes.use('/auth', AuthRouter);
 Routes.use('/users', UserRouter);
 Routes.use('/empresa', EmpresaRouter);
-Routes.use('/empresaComodos', EmpresaComodos); 
-Routes.use('/empresaUsuarios', EmpresaUsuarios);
+Routes.use('/empresa-comodos', EmpresaComodos); 
+Routes.use('/empresa-usuarios', EmpresaUsuarios);
 
 Routes.use((req, res, next) => {
   return res.status(404).json({
