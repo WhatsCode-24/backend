@@ -3,9 +3,13 @@ const express = require('express');
 const Routes = express.Router();
 // const AuthRouter = require('./auth.routes');
 const UserRouter = require('./user.routes');
+const EmpresaRouter = require('./empresa.routes');
+const EmpresaComodos = require('./empresaComodos.routes');
 
 // Routes.use('/auth', AuthRouter);
 Routes.use('/users', UserRouter);
+Routes.use('/empresa', EmpresaRouter);
+Routes.use('/empresaComodos', EmpresaComodos); 
 
 Routes.use((req, res, next) => {
   return res.status(404).json({
