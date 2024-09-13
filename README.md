@@ -11,4 +11,4 @@
 > yarn dev
 
 ## Collection Postman
-[API - 6 SEM.postman_collection.json](https://github.com/user-attachments/files/16949471/API.-.6.SEM.postman_collection.json)
+[API - 6 SEM.postman_collection.json](https://github.com/user-attachments/files/16972617/API.-.6.SEM.postman_collection.json)
