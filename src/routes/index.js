@@ -1,13 +1,13 @@
 const express = require('express');
-// const jwtMiddleware = require('../middlewares/jwt');
+const jwtMiddleware = require('../middlewares/jwt');
 const Routes = express.Router();
-// const AuthRouter = require('./auth.routes');
+const AuthRouter = require('./auth.routes');
 const UserRouter = require('./user.routes');
 const EmpresaRouter = require('./empresa.routes');
 const EmpresaComodos = require('./empresaComodos.routes');
 const EmpresaUsuarios = require('./empresaUsuarios.routes')
 
-// Routes.use('/auth', AuthRouter);
+Routes.use('/auth', AuthRouter);
 Routes.use('/users', UserRouter);
 Routes.use('/empresa', EmpresaRouter);
 Routes.use('/empresa-comodos', EmpresaComodos); 

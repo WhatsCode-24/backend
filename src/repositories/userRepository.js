@@ -13,7 +13,10 @@ module.exports = {
       findParams.push('tb_usuario.cpf_usuario = ' + params.cpf_usuario);
     }
 
-    const query = database(table).select('*').first();
+    const query = database(table)
+      .select('tb_usuario.*', 'tb_nivel_acesso.nome_nivel')
+      .leftJoin('tb_nivel_acesso', 'tb_usuario.id_nivel_acesso', 'tb_nivel_acesso.id_nivel_acesso')
+      .first();
 
     if (findParams.length > 0) {
       query.whereRaw(findParams.join(' AND '));
@@ -23,7 +26,9 @@ module.exports = {
   },
 
   findAll: async () => {
-    const query = database(table).select('*');
+    const query = database(table)
+      .select('tb_usuario.*', 'tb_nivel_acesso.nome_nivel')
+      .leftJoin('tb_nivel_acesso', 'tb_usuario.id_nivel_acesso', 'tb_nivel_acesso.id_nivel_acesso');
     return await query;
   },
 
