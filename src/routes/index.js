@@ -8,10 +8,10 @@ const EmpresaComodos = require('./empresaComodos.routes');
 const EmpresaUsuarios = require('./empresaUsuarios.routes')
 
 Routes.use('/auth', AuthRouter);
-Routes.use('/users', UserRouter);
-Routes.use('/empresa', EmpresaRouter);
-Routes.use('/empresa-comodos', EmpresaComodos); 
-Routes.use('/empresa-usuarios', EmpresaUsuarios);
+Routes.use('/users', jwtMiddleware, UserRouter);
+Routes.use('/empresa', jwtMiddleware, EmpresaRouter);
+Routes.use('/empresa-comodos', jwtMiddleware, EmpresaComodos); 
+Routes.use('/empresa-usuarios', jwtMiddleware, EmpresaUsuarios);
 
 Routes.use((req, res, next) => {
   return res.status(404).json({
