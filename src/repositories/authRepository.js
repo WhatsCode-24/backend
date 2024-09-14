@@ -6,8 +6,7 @@ module.exports = {
     const result = await database(table)
       .select("*")
       .where({
-        ["email_usuario"]: params.email,
-        ["password_usuario"]: params.password
+        ["email_usuario"]: params.email
       })
       .first();
       

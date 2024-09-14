@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const { body, param, validationResult } = require('express-validator');
 const userRepository = require('../repositories/userRepository');
 
@@ -41,18 +42,21 @@ exports.createUser = [
   body('id_nivel_acesso').isInt().withMessage('O nível de acesso deve ser um número inteiro'),
 
   async (req, res) => {
+    const saltRounds = 10;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
 
     try {
+      const hashedPassword = await bcrypt.hash(req.body.password_usuario, saltRounds);
+
       const userData = {
         nome_usuario: req.body.nome_usuario,
         cpf_usuario: req.body.cpf_usuario,
         email_usuario: req.body.email_usuario,
         telefone_usuario: req.body.telefone_usuario,
-        password_usuario: req.body.password_usuario,
+        password_usuario: hashedPassword,
         id_nivel_acesso: req.body.id_nivel_acesso,
       };
 
