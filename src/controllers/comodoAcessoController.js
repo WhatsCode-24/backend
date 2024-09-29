@@ -36,7 +36,7 @@ exports.createComodoAcesso = [
   body('classificacao_acesso').isString().trim().escape(),
   body('observacao_acesso').optional().isString().trim().escape(),
   body('horario_acesso').isString().trim().escape(),
-  body('id_comodo_portas').isInt().withMessage('Deve ser um número inteiro'),
+  body('id_empresa_comodo').isInt().withMessage('Deve ser um número inteiro'),
 
   async (req, res) => {
     const errors = validationResult(req);
@@ -49,7 +49,7 @@ exports.createComodoAcesso = [
         classificacao_acesso: req.body.classificacao_acesso,
         observacao_acesso: req.body.observacao_acesso,
         horario_acesso: req.body.horario_acesso,
-        id_comodo_portas: req.body.id_comodo_portas,
+        id_empresa_comodo: req.body.id_empresa_comodo,
       };
 
       const [acessoId] = await comodoAcessoRepository.create(comodoAcessoData);
@@ -68,7 +68,7 @@ exports.updateComodoAcesso = [
   body('classificacao_acesso').isString().trim().escape(),
   body('observacao_acesso').optional().isString().trim().escape(),
   body('horario_acesso').isString().trim().escape(),
-  body('id_comodo_portas').isInt().withMessage('Deve ser um número inteiro'),
+  body('id_empresa_comodo').isInt().withMessage('Deve ser um número inteiro'),
 
   async (req, res) => {
     const errors = validationResult(req);
@@ -81,7 +81,7 @@ exports.updateComodoAcesso = [
         classificacao_acesso: req.body.classificacao_acesso,
         observacao_acesso: req.body.observacao_acesso,
         horario_acesso: req.body.horario_acesso,
-        id_comodo_portas: req.body.id_comodo_portas,
+        id_empresa_comodo: req.body.id_empresa_comodo,
       };
 
       const affectedRows = await comodoAcessoRepository.update(req.params.id, updateAcessoData);

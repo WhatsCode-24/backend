@@ -19,7 +19,9 @@ module.exports = {
   },
 
   findAll: async () => {
-    return await database(table).select('*');
+    return await database(table)
+      .innerJoin('tb_empresa_comodos', 'tb_empresa_comodos.id_empresa_comodo', `${table}.id_empresa_comodo`)
+      .select([`${table}.*`, 'tb_empresa_comodos.nome_comodo']);
   },
 
   create: async (comodoAcessoData) => {

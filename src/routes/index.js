@@ -10,7 +10,7 @@ const ComodoPortasRouter = require('./comodoPortas.routes')
 const ComodoAcesso = require('./comodoAcesso.routes');
 
 Routes.use('/auth', AuthRouter);
-Routes.use('/users', jwtMiddleware, UserRouter);
+Routes.use('/users', UserRouter);
 Routes.use('/empresa-usuarios', jwtMiddleware, EmpresaUsuariosRouter);
 Routes.use('/empresa', jwtMiddleware, EmpresaRouter);
 Routes.use('/empresa-comodos', jwtMiddleware, EmpresaComodosRouter); 
