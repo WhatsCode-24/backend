@@ -18,10 +18,15 @@ module.exports = {
     return await query;
   },
 
+  // findAll: async () => {
+  //   return await database(table)
+  //     .innerJoin('tb_empresa_comodos', 'tb_empresa_comodos.id_empresa_comodo', `${table}.id_empresa_comodo`)
+  //     .select([`${table}.*`, 'tb_empresa_comodos.nome_comodo']);
+  // },
+  
   findAll: async () => {
-    return await database(table)
-      .innerJoin('tb_empresa_comodos', 'tb_empresa_comodos.id_empresa_comodo', `${table}.id_empresa_comodo`)
-      .select([`${table}.*`, 'tb_empresa_comodos.nome_comodo']);
+    const query = database(table).select('*');
+    return await query;
   },
 
   create: async (comodoAcessoData) => {
