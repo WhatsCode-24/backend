@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: api6sem
 -- ------------------------------------------------------
--- Server version	9.0.1
+-- Server version	8.0.35
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +32,7 @@ CREATE TABLE `tb_usuario` (
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `tb_usuario_cpf_usuario_unique` (`cpf_usuario`),
   UNIQUE KEY `tb_usuario_email_usuario_unique` (`email_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `tb_usuario` (
 
 LOCK TABLES `tb_usuario` WRITE;
 /*!40000 ALTER TABLE `tb_usuario` DISABLE KEYS */;
-INSERT INTO `tb_usuario` VALUES (3,'João Cunha da Silva','123.456.789-00','joao.silva@example.com','+55 11 98765-4321','senha_secreta');
+INSERT INTO `tb_usuario` VALUES (3,'João Cunha da Silva','123.456.789-00','joao.silva@example.com','senha: 123','$2a$10$C1X.IwmWnqmXcYbM3.QqU.WuRr5qpBOuYEVmDZuFn7DX/Xwu5ABoW'),(4,'Alex Ferreira Neto','123.356.789-00','alex.ferreira@example.com','senha: 123','$2a$10$C1X.IwmWnqmXcYbM3.QqU.WuRr5qpBOuYEVmDZuFn7DX/Xwu5ABoW'),(5,'Bruno Neto','123.256.789-00','bruno.neto@example.com','senha: 123','$2a$10$C1X.IwmWnqmXcYbM3.QqU.WuRr5qpBOuYEVmDZuFn7DX/Xwu5ABoW');
 /*!40000 ALTER TABLE `tb_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-10 16:15:49
+-- Dump completed on 2024-10-21 21:28:20
