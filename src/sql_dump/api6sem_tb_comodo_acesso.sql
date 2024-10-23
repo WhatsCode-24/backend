@@ -29,12 +29,13 @@ CREATE TABLE `tb_comodo_acesso` (
   `horario_acesso` varchar(255) NOT NULL,
   `id_comodo_portas` int unsigned NOT NULL,
   `id_usuario` int unsigned NOT NULL,
+  `acesso_autorizado` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_acesso`),
   KEY `tb_comodo_acesso_id_comodo_portas_foreign` (`id_comodo_portas`),
   KEY `tb_comodo_acesso_id_usuario_foreign` (`id_usuario`),
   CONSTRAINT `tb_comodo_acesso_id_comodo_portas_foreign` FOREIGN KEY (`id_comodo_portas`) REFERENCES `tb_comodo_portas` (`id_comodo_portas`) ON DELETE CASCADE,
   CONSTRAINT `tb_comodo_acesso_id_usuario_foreign` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +44,7 @@ CREATE TABLE `tb_comodo_acesso` (
 
 LOCK TABLES `tb_comodo_acesso` WRITE;
 /*!40000 ALTER TABLE `tb_comodo_acesso` DISABLE KEYS */;
-INSERT INTO `tb_comodo_acesso` VALUES (3,'Administrador','Acesso liberado apenas para admins','2024-09-16 09:00:00',6,3),(4,'Administrador','Acesso liberado apenas para admins','2024-09-16 10:00:00',6,3),(5,'Administrador','Acesso liberado apenas para admins','2024-09-16 11:00:00',6,3),(6,'Administrador','Acesso liberado apenas para admins','2024-09-16 07:00:00',6,4),(7,'Administrador','Acesso liberado apenas para admins','2024-09-16 12:00:00',7,4),(8,'Administrador','Acesso liberado apenas para admins','2024-09-16 01:00:00',8,5),(9,'Administrador','Acesso liberado apenas para admins','2024-09-16 10:00:00',8,3),(10,'Administrador','Acesso liberado apenas para admins','2024-09-16 10:00:00',7,3);
+INSERT INTO `tb_comodo_acesso` VALUES (1,'Administrador','Acesso liberado apenas para admins','2024-09-16 10:00:00',7,3,0),(2,'Administrador','Acesso liberado apenas para admins','2024-09-16 10:00:00',7,3,1),(3,'Administrador','Acesso liberado apenas para admins','2024-09-16 10:00:00',6,4,1),(4,'Administrador','Acesso liberado apenas para admins','2024-09-16 10:00:00',7,5,1),(5,'Administrador','Acesso liberado apenas para admins','2024-09-16 11:00:00',7,5,1),(6,'Administrador','Acesso liberado apenas para admins','2024-09-16 14:00:00',8,3,1),(8,'Administrador','Acesso liberado apenas para admins','2024-09-16 20:00:00',7,4,1),(9,'Administrador','Acesso liberado apenas para admins','2024-09-16 22:00:00',7,4,1);
 /*!40000 ALTER TABLE `tb_comodo_acesso` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-21 21:28:21
+-- Dump completed on 2024-10-22 21:40:18
