@@ -33,7 +33,7 @@ CREATE TABLE `tb_empresa_usuarios` (
   KEY `tb_empresa_usuarios_id_usuario_foreign` (`id_usuario`),
   CONSTRAINT `tb_empresa_usuarios_id_empresa_foreign` FOREIGN KEY (`id_empresa`) REFERENCES `tb_empresa` (`id_empresa`) ON DELETE CASCADE,
   CONSTRAINT `tb_empresa_usuarios_id_usuario_foreign` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`id_usuario`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `tb_empresa_usuarios` (
 
 LOCK TABLES `tb_empresa_usuarios` WRITE;
 /*!40000 ALTER TABLE `tb_empresa_usuarios` DISABLE KEYS */;
-INSERT INTO `tb_empresa_usuarios` VALUES (4,2,3,'2024-09-12 02:35:59','2024-09-12 02:35:59');
+INSERT INTO `tb_empresa_usuarios` VALUES (4,2,3,'2024-09-12 02:35:59','2024-09-12 02:35:59'),(5,2,4,'2024-09-12 02:35:59','2024-09-12 02:35:59'),(6,2,5,'2024-09-12 02:35:59','2024-09-12 02:35:59');
 /*!40000 ALTER TABLE `tb_empresa_usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-11 23:38:20
+-- Dump completed on 2024-10-22 21:40:18
