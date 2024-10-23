@@ -25,8 +25,9 @@ module.exports = {
   // },
   
   findAll: async () => {
-    const query = database(table).select('*');
-    return await query;
+    return await database(table)
+      .innerJoin('tb_comodo_portas', 'tb_comodo_portas.id_comodo_portas', `${table}.id_comodo_portas`)
+      .select([`${table}.*`, 'tb_comodo_portas.descricao_porta']);
   },
 
   create: async (comodoAcessoData) => {
