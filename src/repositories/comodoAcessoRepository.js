@@ -18,10 +18,16 @@ module.exports = {
     return await query;
   },
 
+  // findAll: async () => {
+  //   return await database(table)
+  //     .innerJoin('tb_empresa_comodos', 'tb_empresa_comodos.id_empresa_comodo', `${table}.id_empresa_comodo`)
+  //     .select([`${table}.*`, 'tb_empresa_comodos.nome_comodo']);
+  // },
+  
   findAll: async () => {
     return await database(table)
-      .innerJoin('tb_empresa_comodos', 'tb_empresa_comodos.id_empresa_comodo', `${table}.id_empresa_comodo`)
-      .select([`${table}.*`, 'tb_empresa_comodos.nome_comodo']);
+      .innerJoin('tb_comodo_portas', 'tb_comodo_portas.id_comodo_portas', `${table}.id_comodo_portas`)
+      .select([`${table}.*`, 'tb_comodo_portas.descricao_porta']);
   },
 
   create: async (comodoAcessoData) => {
