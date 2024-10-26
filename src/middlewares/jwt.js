@@ -24,12 +24,12 @@ const JwtMiddleware = async (req, res, next) => {
       });
     }
 
-    if (user.nome_nivel !== 'admin') {
-      return res.status(403).send({
-        status: 403,
-        message: 'Acesso negado. Apenas administradores podem acessar essa rota.',
-      });
-    }
+    // if (user.nome_nivel !== 'admin') {
+    //   return res.status(403).send({
+    //     status: 403,
+    //     message: 'Acesso negado. Apenas administradores podem acessar essa rota.',
+    //   });
+    // }
 
     req.user = { id_usuario: decoded.id_usuario, nome_nivel: user.nome_nivel };
     next();
