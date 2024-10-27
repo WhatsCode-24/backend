@@ -28,6 +28,13 @@ module.exports = {
     return await query;
   },
 
+  findAllByComodoId: async (id_empresa_comodos) => {
+    const query = database(table)
+      .select('tb_comodo_portas.*')
+      .where('tb_comodo_portas.id_empresa_comodos', id_empresa_comodos);
+    return await query;
+  },
+
   create: async (comodoPortaData) => {
     comodoPortaData.status_porta = comodoPortaData.status_porta ? 1 : 0;
     const query = database(table).insert(comodoPortaData);

@@ -20,7 +20,7 @@ exports.getComodoPortasById = [
       console.error('Erro ao buscar porta de comodo:', error);
       res.status(500).json({ error: 'Erro ao buscar porta de comodo' });
     }
-  }
+  },
 ];
 
 exports.getAllComodoPortas = async (req, res) => {
@@ -33,10 +33,31 @@ exports.getAllComodoPortas = async (req, res) => {
   }
 };
 
+exports.getAllCOmodosPortasByComodoId = [
+  param('id').isInt().toInt(),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      const comodoPortas = await comodoPortasRepository.findAllByComodoId(req.params.id);
+
+      if (!comodoPortas) return res.status(404).json({ error: 'Porta não encontrada' });
+
+      res.json(comodoPortas);
+    } catch (error) {
+      console.error('Erro ao buscar porta de comodo:', error);
+      res.status(500).json({ error: 'Erro ao buscar porta de comodo' });
+    }
+  },
+];
+
 exports.createComodoPortas = [
   body('descricao_porta').isString().trim().escape(),
-  body('status_porta').isBoolean().trim().escape(),
-  body('senha_porta').isString().trim(),
+  body('tempo').isInt(),
+  body('senha_porta').optional().isInt(),
   body('id_empresa_comodos').isInt().withMessage('Deve ser um número inteiro'),
 
   async (req, res) => {
@@ -47,12 +68,13 @@ exports.createComodoPortas = [
     }
 
     try {
-      const hashedPassword = await bcrypt.hash(req.body.senha_porta, saltRounds);
-      
+      // const hashedPassword = await bcrypt.hash(req.body.senha_porta, saltRounds);
+
       const comodoPortaData = {
         descricao_porta: req.body.descricao_porta,
         status_porta: req.body.status_porta,
-        senha_porta: hashedPassword,
+        senha_porta: req.body.senha_porta,
+        tempo: req.body.tempo,
         id_empresa_comodos: req.body.id_empresa_comodos,
       };
 
@@ -64,7 +86,7 @@ exports.createComodoPortas = [
       console.error('Erro ao criar porta de comodo:', error);
       res.status(500).json({ error: 'Erro ao criar porta de comodo' });
     }
-  }
+  },
 ];
 
 exports.updateComodoPortas = [
@@ -95,7 +117,7 @@ exports.updateComodoPortas = [
       console.error('Erro ao atualizar porta:', error);
       res.status(500).json({ error: 'Erro ao atualizar porta' });
     }
-  }
+  },
 ];
 
 exports.deleteComodoPortas = [
@@ -118,5 +140,5 @@ exports.deleteComodoPortas = [
       console.error('Erro ao deletar porta:', error);
       res.status(500).json({ error: 'Erro ao deletar porta' });
     }
-  }
+  },
 ];
