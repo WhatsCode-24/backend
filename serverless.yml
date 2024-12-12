@@ -9,8 +9,8 @@ plugins:
 
 custom:
   profiles:
-    dev: pessoal
-    prod: pessoal
+    dev: Pessoal
+    prod: Pessoal
 
 provider:
   name: aws
@@ -25,11 +25,5 @@ functions:
   api:
     handler: index.handler
     timeout: 29
-    vpc:
-      securityGroupIds:
-        - sg-01dc6ba447656191f
-      subnetIds:
-        - subnet-0e9badf4562a5901b
-        - subnet-0f4ce077361043312
     events:
       - httpApi: '*'
